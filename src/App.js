@@ -7,11 +7,10 @@ import Header from './Components/Pages/Header'
 
 import {
   createBrowserRouter,
-  RouterProvider, Routes,
-  MemoryRouter 
+  RouterProvider,
 } from "react-router-dom";
 
-function App({ location }) {
+function App() {
 
 
 
@@ -31,12 +30,8 @@ function App({ location }) {
 
   return (
     <div className="App">
-      <Header/>
-      <RouterProvider router={router}>
-        <MemoryRouter initialEntries={location} initialIndex={0}>
-          <Routes />
-        </MemoryRouter>
-      </RouterProvider>
+      <Header></Header>
+      <RouterProvider router={router} />
 
     </div>
   );
