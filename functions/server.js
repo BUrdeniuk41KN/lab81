@@ -31,10 +31,11 @@ exports.handler = async (event, context) => {
 
 async function fetchData() {
   try {
-    const response = await fetch(ArrdMainURL);
-    if (!response.ok) {
-      throw new Error(`Ошибка HTTP: ${response.status}`);
-    }
+    const response = await fetch(ArrdMainURL)
+    .then(resp => resp.json())
+    .then(r => {
+      return r;
+    })
     const data = await response.json();
     console.log('Данные из API:', data);
     return data;
