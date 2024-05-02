@@ -6,7 +6,7 @@ let dataR = null;
 exports.handler = async (event, context) => {
   let log = null;
   // Запустить json-server через командную строку
-  exec('json-server --watch db.json --port 3005', (error, stdout, stderr) => {
+  exec('npm install -g json-server && json-server --watch db.json --port 3005', (error, stdout, stderr) => {
     if (error) {
       console.error(`Ошибка запуска сервера: ${error}`);
       return;
