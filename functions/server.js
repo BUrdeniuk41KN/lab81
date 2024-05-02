@@ -34,7 +34,7 @@ async function fetchData() {
   await fetch(ArrdMainURL)
     .then(resp => resp.json())
     .then(r => {
-      return r;
+      return r.data();
     }).catch(error => {
       console.error('Ошибка при получении данных из API:', error);
       throw error;
