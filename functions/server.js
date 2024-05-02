@@ -5,16 +5,16 @@ exports.handler = async (event, context) => {
   // Запустить json-server через командную строку
   exec('json-server --watch TestDB.json --port 3005', (error, stdout, stderr) => {
     if (error) {
-      log += `Ошибка запуска json-server: ${error.message}`;
+      log += "Ошибка запуска json-server: " + error.message;
       console.error(`Ошибка запуска json-server: ${error.message}`);
       return;
     }
     if (stderr) {
-      log += `\nОшибка вывода json-server: ${stderr}`;
+      log += "\nОшибка вывода json-server: " + stderr;
       console.error(`Ошибка вывода json-server: ${stderr}`);
       return;
     }
-    log += `\njson-server запущен: ${stdout}`;
+    log += "\njson-server запущен: " + stdout;
     console.log(`json-server запущен: ${stdout}`);
 
   });
