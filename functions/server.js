@@ -36,11 +36,14 @@ async function fetchData() {
       throw new Error(`Ошибка HTTP: ${response.status}`);
     }
     const data = await response.json();
-    dataR = data;
     console.log('Данные из API:', data);
-    return data;
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ res: data})
+    };
   } catch (error) {
     console.error('Ошибка при получении данных из API:', error);
     throw error;
   }
+  
 }
