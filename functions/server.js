@@ -6,19 +6,29 @@ let dataR = null;
 exports.handler = async (event, context) => {
   let log = null;
   // Запустить json-server через командную строку
-  exec('npm install -g json-server && json-server --watch db.json --port 3005', (error, stdout, stderr) => {
+  const installCommand = 'npm install -g json-server';
+
+  // Команда для запуска json-server
+  const startCommand = 'json-server --watch db.json --port 3005';
+  
+  // Выполнение установочной команды
+  exec(installCommand, (error, stdout, stderr) => {
     if (error) {
-      console.error(`Ошибка запуска сервера: ${error}`);
+      console.error(`Ошибка установки json-server: ${error}`);
       return;
     }
-    console.log(`Сервер JSON успешно запущен: ${stdout}`);
+  
+    console.log('json-server успешно установлен');
+  
+    // Выполнение команды для запуска json-server после успешной установки
+    exec(startCommand, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Ошибка запуска json-server: ${error}`);
+        return;
+      }
+      console.log(`json-server успешно запущен: ${stdout}`);
+    });
   });
-
-  // Вернуть ответ, например, для CORS
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: "Сервер JSON успешно запущен: " + fetchData() })
-  };
 };
 
 async function fetchData() {
