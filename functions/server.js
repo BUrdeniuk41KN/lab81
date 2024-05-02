@@ -21,6 +21,7 @@ exports.handler = async (event, context) => {
     log = `json-server запущен: ${stdout}`;
     
   });
+  debugger;
 fetchData();
   // Вернуть ответ, например, для CORS
   return {
