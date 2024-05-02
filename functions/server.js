@@ -1,6 +1,7 @@
 const { exec } = require('child_process');
 const ArrdMainURL = "https://main--adorable-praline-baa3f3.netlify.app/api"; 
 let response = null;
+let dataR = null;
 
 exports.handler = async (event, context) => {
   let log = null;
@@ -35,6 +36,7 @@ async function fetchData() {
       throw new Error(`Ошибка HTTP: ${response.status}`);
     }
     const data = await response.json();
+    dataR = data;
     console.log('Данные из API:', data);
     return data;
   } catch (error) {
