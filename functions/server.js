@@ -19,9 +19,9 @@ exports.handler = async (event, context) => {
     }
     console.log(`json-server запущен: ${stdout}`);
     log = `json-server запущен: ${stdout}`;
-    fetchData();
+    
   });
-
+fetchData();
   // Вернуть ответ, например, для CORS
   return {
     statusCode: 200,
