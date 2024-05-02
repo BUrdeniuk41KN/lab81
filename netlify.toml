@@ -5,6 +5,6 @@
 
 
 [[redirects]]
-  from = "/TraficLigh"
+  from = "/TraficLight"
   to = "/"
   status = 200
