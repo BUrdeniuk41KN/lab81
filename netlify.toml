@@ -4,3 +4,7 @@
   status = 200
 
 
+[[redirects]]
+  from = "/TraficLigh/*"
+  to = "/"
+  status = 200
