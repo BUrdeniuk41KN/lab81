@@ -21,6 +21,6 @@ exports.handler = async (event, context) => {
   // Вернуть ответ, например, для CORS
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: "Сервер JSON успешно запущен: " + log})
+    body: JSON.stringify({ message: "Сервер JSON успешно запущен: " + context})
   };
 };
