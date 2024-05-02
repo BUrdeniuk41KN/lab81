@@ -10,7 +10,6 @@
     "bootstrap": "^5.3.3",
     "cors": "^2.8.5",
     "framer-motion": "^11.1.7",
-    "json-server": "^1.0.0-alpha.23",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.3.1",
@@ -18,7 +17,8 @@
     "react-router-dom": "^6.23.0",
     "react-scripts": "5.0.1",
     "redux": "^5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yarn": "^1.22.22"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,5 +45,13 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://192.168.1.40:3005"
+  "proxy": "http://192.168.1.40:3005",
+  "devDependencies": {
+    "json-server": "^1.0.0-alpha.23"
+  },
+  "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/ZoXQAfE2) # Лабораторна робота №7 ## Мета: Робота з react context api",
+  "main": "server.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
