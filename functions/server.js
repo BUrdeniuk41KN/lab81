@@ -21,12 +21,11 @@ exports.handler = async (event, context) => {
     log = `json-server запущен: ${stdout}`;
     
   });
-  debugger;
-fetchData();
+
   // Вернуть ответ, например, для CORS
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: "Сервер JSON успешно запущен: " + response})
+    body: JSON.stringify({ message: "Сервер JSON успешно запущен: " + fetchData()})
   };
 };
 
@@ -38,10 +37,7 @@ async function fetchData() {
     }
     const data = await response.json();
     console.log('Данные из API:', data);
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ res: data})
-    };
+    return data;
   } catch (error) {
     console.error('Ошибка при получении данных из API:', error);
     throw error;
