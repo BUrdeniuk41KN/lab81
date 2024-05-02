@@ -1,5 +1,4 @@
 const { exec } = require('child_process');
-import { axios } from 'axios';
 const ArrdMainURL = "https://main--adorable-praline-baa3f3.netlify.app/api"; 
 let response = null;
 
@@ -31,9 +30,13 @@ exports.handler = async (event, context) => {
 
 async function fetchData() {
   try {
-    response = await axios.get(ArrdMainURL);
-    console.log('Данные из API:', response.data);
-    return response.data;
+    const response = await fetch(ArrdMainURL);
+    if (!response.ok) {
+      throw new Error(`Ошибка HTTP: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log('Данные из API:', data);
+    return data;
   } catch (error) {
     console.error('Ошибка при получении данных из API:', error);
     throw error;
