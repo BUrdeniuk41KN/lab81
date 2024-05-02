@@ -1,11 +1,22 @@
-const jsonServer = require('json-server');
-const server = jsonServer.create();
-const router = jsonServer.router('TestDB.json'); // Путь к вашему файлу данных
-const middlewares = jsonServer.defaults();
+const { exec } = require('child_process');
 
-const PORT = process.env.PORT || 3005;
+exports.handler = async (event, context) => {
+  // Запустить json-server через командную строку
+  exec('json-server --watch TestDB.json --port 3005', (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Ошибка запуска json-server: ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      console.error(`Ошибка вывода json-server: ${stderr}`);
+      return;
+    }
+    console.log(`json-server запущен: ${stdout}`);
+  });
 
-server.use(middlewares);
-server.use(router);
-
-module.exports = server;
+  // Вернуть ответ, например, для CORS
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ message: "Сервер JSON успешно запущен" })
+  };
+};
