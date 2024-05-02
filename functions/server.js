@@ -8,4 +8,4 @@ const PORT = process.env.PORT || 3005;
 server.use(middlewares);
 server.use(router);
 
-module.exports = server;r;
+module.exports = server;
