@@ -2,3 +2,9 @@
   from = "/api/*"
   to = "/.netlify/functions/server/:splat"
   status = 200
+
+
+[[redirects]]
+  from = "/Error/*"
+  to = "http://localhost:3000/Error"
+  status = 200
