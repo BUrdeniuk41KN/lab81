@@ -8,3 +8,9 @@
   from = "/TraficLight"
   to = "/"
   status = 200
+
+  
+[[redirects]]
+  from = "/User_setings/*"
+  to = "http://localhost:3000/User_setings/*"
+  status = 200
