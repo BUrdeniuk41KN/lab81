@@ -1,5 +1,5 @@
 const { exec } = require('child_process');
-const ArrdMainURL = "https://main--adorable-praline-baa3f3.netlify.app/api"; 
+const ArrdMainURL = "https://main--adorable-praline-baa3f3.netlify.app/api";
 let response = null;
 let dataR = null;
 
@@ -19,29 +19,27 @@ exports.handler = async (event, context) => {
     }
     console.log(`json-server запущен: ${stdout}`);
     log = `json-server запущен: ${stdout}`;
-    
+
   });
 
   // Вернуть ответ, например, для CORS
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: "Сервер JSON успешно запущен: " + fetchData()})
+    body: JSON.stringify({ message: "Сервер JSON успешно запущен: " + fetchData() })
   };
 };
 
 async function fetchData() {
-  try {
-    const response = await fetch(ArrdMainURL)
+
+  await fetch(ArrdMainURL)
     .then(resp => resp.json())
     .then(r => {
       return r;
+    }).catch(error => {
+      console.error('Ошибка при получении данных из API:', error);
+      throw error;
     })
-    const data = await response.json();
-    console.log('Данные из API:', data);
-    return data;
-  } catch (error) {
-    console.error('Ошибка при получении данных из API:', error);
-    throw error;
-  }
-  
+
+
+
 }
